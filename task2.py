@@ -14,3 +14,33 @@ stroka = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
 # На выходе:
 
 # Парам пам-пам
+
+def examination(str):
+    str = str.split()
+    list_1 = []
+    for word in str:
+        sum_w = 0
+        for i in word:
+            if i in 'аеёиоуыэюя':
+                sum_w += 1
+        list_1.append(sum_w)
+    return len(list_1) == list_1.count(list_1[0])
+str_1 = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
+if examination(str_1):
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
+
+
+# Вариант для размышления
+
+# def word(stroka):
+#     str = stroka.lower().split()
+#     f = lambda x: sum(1 for i in x if i in 'аоуыэеёиюя')
+#     tmp = f(str[0])
+#     if all([f(i) == tmp for i in str]):
+#         return 'Парам пам-пам'
+#     return 'Пам парам'
+
+
+# print(word("пара-ра-рам рам-пам-папам па-ра-па-дам "))

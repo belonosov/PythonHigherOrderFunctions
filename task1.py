@@ -12,10 +12,17 @@
 
 # На входе:
 
-print_operation_table(lambda x, y: x * y, 3, 3)
+# print_operation_table(lambda x, y: x * y, 3, 3)
 
 # На выходе:
 
 # 1 2 3
 # 2 4 6 
 # 3 6 9
+
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    a = [[operation(i, j) for j in range(1, num_columns + 1)] for i in range(1, num_rows + 1)]
+    for i in a:
+        print(*[f"{x:>3}" for x in i])
+
+print_operation_table(lambda x, y: x * y)
